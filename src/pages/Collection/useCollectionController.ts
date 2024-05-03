@@ -33,7 +33,8 @@ export const useCollectionController = () => {
 
   const handleCreateCard = () => history.push(ROUTES.CREATE_CARD);
 
-  const handleFilterBy = (event: ChangeEvent<HTMLSelectElement>) => setSortBy(event.target.value as SortingParams);
+  const handleFilterBy = (event: ChangeEvent<HTMLSelectElement>) =>
+    setSortBy(event.target.value as SortingParams);
 
   const sortedResults = useMemo(() => {
     /**
@@ -63,7 +64,7 @@ export const useCollectionController = () => {
         break;
     }
     return sortedCollection;
-  }, [collection, sortBy])
+  }, [collection, sortBy]);
 
   return {
     loading,
@@ -71,6 +72,6 @@ export const useCollectionController = () => {
     sortedResults,
     sortBy,
     handleFilterBy,
-    handleCreateCard
+    handleCreateCard,
   };
 };

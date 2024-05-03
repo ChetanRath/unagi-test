@@ -1,4 +1,4 @@
-import { Collection } from "../pages/Collection";
+import { Collection } from '../pages/Collection';
 
 export const URLS = {
   API_BASE_URL: 'http://localhost:8001',
@@ -7,10 +7,8 @@ export const URLS = {
     'https://t3.ftcdn.net/jpg/05/16/27/58/240_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg',
 };
 
-
 export const ROUTES = {
   CREATE_CARD: '/create-card',
   COLLECTION: '/collection',
-  HOME: '/'
-}
-
+  HOME: '/',
+};

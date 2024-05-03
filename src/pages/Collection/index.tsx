@@ -19,9 +19,9 @@ export const Collection: FC = () => {
     sortedResults,
     sortBy,
     handleFilterBy,
-    handleCreateCard
+    handleCreateCard,
   } = useCollectionController();
-  
+
   return (
     <>
       {loading ? (

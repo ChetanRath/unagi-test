@@ -8,7 +8,7 @@ import {
   CreateCardFormContainer,
   FieldGroup,
   Input,
-  Label
+  Label,
 } from '../styled/createCard';
 import { URLS } from '../utils/constant';
 

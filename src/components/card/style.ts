@@ -8,7 +8,7 @@ const CardContainer = styled.div`
   background-color: #f9f9f9;
   color: #1a237e;
   transition: all 0.3s ease;
-  cursor:pointer;
+  cursor: pointer;
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2);

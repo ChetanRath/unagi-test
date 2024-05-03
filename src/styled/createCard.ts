@@ -17,7 +17,6 @@ const CreateCardForm = styled.form`
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 768px) {
-    
     max-width: 90%;
   }
 `;
@@ -68,5 +67,5 @@ export {
   FieldGroup,
   Label,
   Input,
-  Button
+  Button,
 };
