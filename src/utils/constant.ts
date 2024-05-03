@@ -11,6 +11,6 @@ export const URLS = {
 export const ROUTES = {
   CREATE_CARD: '/create-card',
   COLLECTION: '/collection',
-  HOME: '/collection'
+  HOME: '/'
 }
 
