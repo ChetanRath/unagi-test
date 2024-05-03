@@ -13,4 +13,4 @@ export const ROUTES = {
 
 export const HTTP_CODES = {
   CREATED: 201
-}
+};

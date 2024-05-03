@@ -37,6 +37,9 @@ const useCollectionController = () => {
     setSortBy(event.target.value as SortingParams);
 
   const sortedResults = useMemo(() => {
+    /**
+     * This logic is a mimic of the sorting functionality that comes from BE
+     */
     let sortedCollection = [...collection];
     switch (sortBy) {
       case SortingParams.Birthday:

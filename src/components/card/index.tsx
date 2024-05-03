@@ -1,8 +1,8 @@
 import React, { FC, Suspense, lazy } from 'react';
 import { CardDetails as CardProps } from '../../utils/type';
 import LoadingIndicator from '../loader';
-import { CardContainer, CardDetails, PlayerDOB, PlayerName } from './style';
 import { formateDOB } from '../../utils/helpers';
+import { CardContainer, CardDetails, PlayerDOB, PlayerName } from './style';
 
 const LazyImage = lazy(() => import('./lazyImage'));
 

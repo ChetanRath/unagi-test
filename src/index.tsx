@@ -4,9 +4,10 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import { ROUTES } from './utils/constant';
 import LoadingIndicator from './components/loader';
 import Navbar from './components/navbar';
+import './style.css';
+
 const Collection = lazy(() => import('./pages/Collection'));
 const CreateCard = lazy(() => import('./pages/CreateCard'));
-import './style.css';
 
 const App = () => (
   <Router>
