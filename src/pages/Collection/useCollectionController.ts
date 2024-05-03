@@ -5,7 +5,7 @@ import { CardDetails } from '../../utils/type';
 import { ROUTES } from '../../utils/constant';
 import { SortingParams } from '../../utils/helpers';
 
-export const useCollectionController = () => {
+const useCollectionController = () => {
   const [collection, setCollection] = useState<CardDetails[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<null | string>(null);
@@ -26,7 +26,7 @@ export const useCollectionController = () => {
         setCollection(cardData);
       }
     } catch (error) {
-      alert('Error fetching cardData. Please try again later.');
+      setError('Error fetching cardData. Please try again later.');
     }
     setLoading(false);
   };
@@ -37,9 +37,6 @@ export const useCollectionController = () => {
     setSortBy(event.target.value as SortingParams);
 
   const sortedResults = useMemo(() => {
-    /**
-     * This utility mimicks a sort at backend to provide the POC afor functionality
-     */
     let sortedCollection = [...collection];
     switch (sortBy) {
       case SortingParams.Birthday:
@@ -75,3 +72,5 @@ export const useCollectionController = () => {
     handleCreateCard,
   };
 };
+
+export default useCollectionController;

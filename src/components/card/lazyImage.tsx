@@ -6,9 +6,7 @@ import { CardImage } from './style';
 const LazyImage: FC<LazyImageProps> = ({ id }) => {
   const [imageError, setImageError] = useState(false);
 
-  const handleImageError = () => {
-    setImageError(true);
-  };
+  const handleImageError = () => setImageError(true);
 
   return (
     <CardImage

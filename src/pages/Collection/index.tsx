@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import Card from '../../components/card';
 import LoadingIndicator from '../../components/loader';
-import { useCollectionController } from './useCollectionController';
+import useCollectionController from './useCollectionController';
 import { SortingParams } from '../../utils/helpers';
 import {
   Button,
@@ -12,7 +12,7 @@ import {
   SelectContainer,
 } from '../../styled/collection';
 
-export const Collection: FC = () => {
+const Collection: FC = () => {
   const {
     loading,
     error,
@@ -53,3 +53,5 @@ export const Collection: FC = () => {
     </>
   );
 };
+
+export default Collection;
