@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 
 import Card from '../../components/card';
 import LoadingIndicator from '../../components/loader';
+import { useCollectionController } from './useCollectionController';
+import { SortingParams } from 'utils/helpers';
 import {
   Button,
   CardContainer,
@@ -9,7 +11,6 @@ import {
   GridContainer,
   SelectContainer,
 } from '../../styled/collection';
-import { useCollectionController } from './useCollectionController';
 
 export const Collection: FC = () => {
   const {
@@ -34,10 +35,10 @@ export const Collection: FC = () => {
         <>
           <SelectContainer>
             <select value={sortBy} onChange={handleFilterBy}>
-              <option value=""></option>
-              <option value="birthday">Birthday</option>
-              <option value="firstname">First Name</option>
-              <option value="lastname">Last Name</option>
+              <option value={SortingParams.Empty}></option>
+              <option value={SortingParams.Birthday}>Birthday</option>
+              <option value={SortingParams.FirstName}>First Name</option>
+              <option value={SortingParams.LastName}>Last Name</option>
             </select>
           </SelectContainer>
           <GridContainer>
