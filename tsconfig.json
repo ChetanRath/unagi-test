@@ -5,6 +5,7 @@
     "target": "es5",
     "lib": ["dom", "es2015", "esnext.asynciterable"],
     "skipLibCheck": true,
+    "baseUrl": "."
   },
   "include": ["src"]
 }

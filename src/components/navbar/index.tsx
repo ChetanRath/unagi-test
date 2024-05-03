@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
-import { NavButton, NavContainer, NavItem } from './style';
 import { useHistory, useLocation } from 'react-router-dom';
+import { ROUTES } from '../../utils/constant';
+import { NavButton, NavContainer, NavItem } from './style';
 
 const Navbar: FC = () => {
   const location = useLocation();
@@ -16,20 +17,16 @@ const Navbar: FC = () => {
     <NavContainer>
       <NavItem>
         <NavButton
-          active={activeTab === '/create-card'}
-          onClick={() => {
-            toggleTab('/create-card');
-          }}
+          active={activeTab === ROUTES.CREATE_CARD}
+          onClick={() => toggleTab(ROUTES.CREATE_CARD)}
         >
           Create
         </NavButton>
       </NavItem>
       <NavItem>
         <NavButton
-          active={activeTab === '/collection'}
-          onClick={() => {
-            toggleTab('/collection');
-          }}
+          active={activeTab === ROUTES.Collection}
+          onClick={toggleTab(ROUTES.Collection)}
         >
           Player List
         </NavButton>
