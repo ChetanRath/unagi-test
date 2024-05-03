@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import Card from '../../components/card';
 import LoadingIndicator from '../../components/loader';
 import { useCollectionController } from './useCollectionController';
-import { SortingParams } from 'utils/helpers';
+import { SortingParams } from '../../utils/helpers';
 import {
   Button,
   CardContainer,
