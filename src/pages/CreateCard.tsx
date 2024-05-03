@@ -1,16 +1,9 @@
 import axios from 'axios';
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import {
-  Button,
-  CardHeading,
-  CreateCardForm,
-  CreateCardFormContainer,
-  FieldGroup,
-  Input,
-  Label,
-} from '../styled/createCard';
-import { URLS } from '../utils/constant';
+import { HTTP_CODES, ROUTES, URLS } from '../utils/constant';
+import { Button, CardHeading, CreateCardForm, CreateCardFormContainer, FieldGroup, Input, Label } from '../styled/createCard';
+import { SortingParams } from '../utils/helpers';
 
 const CreateCard = () => {
   const [card, setCard] = useState({
@@ -40,13 +33,13 @@ const CreateCard = () => {
       const formattedBirthday = new Date(card.birthday).toISOString();
       const payload = { player: { ...card, birthday: formattedBirthday } };
       const response = await axios.post(`${URLS.API_BASE_URL}/cards`, payload);
-      if (response.status === 201) {
+      if (response.status === HTTP_CODES.CREATED) {
         setCard({
           firstname: '',
           lastname: '',
           birthday: '',
         });
-        history.push('/collection');
+        history.push(ROUTES.COLLECTION);
       }
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
@@ -66,7 +59,7 @@ const CreateCard = () => {
           <Label>First Name:</Label>
           <Input
             type="text"
-            name="firstname"
+            name={SortingParams.FirstName}
             value={card.firstname}
             onChange={changeHandler}
           />
@@ -75,7 +68,7 @@ const CreateCard = () => {
           <Label>Last Name:</Label>
           <Input
             type="text"
-            name="lastname"
+            name={SortingParams.LastName}
             value={card.lastname}
             onChange={changeHandler}
           />
@@ -84,7 +77,7 @@ const CreateCard = () => {
           <Label>Date of Birth:</Label>
           <Input
             type="date"
-            name="birthday"
+            name={SortingParams.Birthday}
             value={card.birthday}
             onChange={changeHandler}
           />

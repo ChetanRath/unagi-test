@@ -1,5 +1,3 @@
-import { Collection } from '../pages/Collection';
-
 export const URLS = {
   API_BASE_URL: 'http://localhost:8001',
   PLAYER_IMAGE_URL: 'https://images.fotmob.com/image_resources/playerimages',
@@ -12,3 +10,7 @@ export const ROUTES = {
   COLLECTION: '/collection',
   HOME: '/',
 };
+
+export const HTTP_CODES = {
+  CREATED: 201
+}
