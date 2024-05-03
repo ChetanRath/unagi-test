@@ -1,5 +1,5 @@
 import React, { FC, Suspense, lazy } from 'react';
-import { CardProps } from '../../utils/type';
+import { CardDetails as CardProps } from '../../utils/type';
 import LoadingIndicator from '../loader';
 import { CardContainer, CardDetails, PlayerDOB, PlayerName } from './style';
 import { formateDOB } from '../../utils/helpers';

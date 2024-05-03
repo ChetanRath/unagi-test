@@ -18,7 +18,7 @@ export const Collection: FC = () => {
     handleCreateCard,
     sortBy,
     handleFilterBy,
-    sortedCollection,
+    sortedResults,
   } = useCollectionController();
   
   return (
@@ -41,7 +41,7 @@ export const Collection: FC = () => {
             </select>
           </SelectContainer>
           <GridContainer>
-            {sortedCollection.map((card) => (
+            {sortedResults.map((card) => (
               <CardContainer key={card.id}>
                 <Card id={card.id} player={card.player} />
               </CardContainer>

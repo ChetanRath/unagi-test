@@ -25,8 +25,8 @@ const Navbar: FC = () => {
       </NavItem>
       <NavItem>
         <NavButton
-          active={activeTab === ROUTES.Collection}
-          onClick={toggleTab(ROUTES.Collection)}
+          active={activeTab === ROUTES.COLLECTION}
+          onClick={() => toggleTab(ROUTES.COLLECTION)}
         >
           Player List
         </NavButton>

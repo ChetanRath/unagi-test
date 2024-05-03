@@ -1,4 +1,4 @@
-export interface CardProps {
+export interface CardDetails {
   id: number;
   player: PlayerProps;
 }
