@@ -15,10 +15,10 @@ export const Collection: FC = () => {
   const {
     loading,
     error,
-    handleCreateCard,
+    sortedResults,
     sortBy,
     handleFilterBy,
-    sortedResults,
+    handleCreateCard
   } = useCollectionController();
   
   return (

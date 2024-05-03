@@ -3,12 +3,13 @@ import { useHistory } from 'react-router-dom';
 import { fetchCollection } from '../../lib/collection';
 import { CardDetails } from '../../utils/type';
 import { ROUTES } from '../../utils/constant';
+import { SortingParams } from '../../utils/helpers';
 
 export const useCollectionController = () => {
   const [collection, setCollection] = useState<CardDetails[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<null | string>(null);
-  const [sortBy, setSortBy] = useState('');
+  const [sortBy, setSortBy] = useState<SortingParams>(SortingParams.Empty);
   const history = useHistory();
 
   useEffect(() => {
@@ -18,38 +19,41 @@ export const useCollectionController = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const data = await fetchCollection();
-      if (data.length === 0) {
-        setError('No data available. Create a card for a player!');
+      const cardData = await fetchCollection();
+      if (cardData.length === 0) {
+        setError('No cardData available. Create a card for a player!');
       } else {
-        setCollection(data);
+        setCollection(cardData);
       }
     } catch (error) {
-      alert('Error fetching data. Please try again later.');
+      alert('Error fetching cardData. Please try again later.');
     }
     setLoading(false);
   };
 
   const handleCreateCard = () => history.push(ROUTES.CREATE_CARD);
 
-  const handleFilterBy = (event: ChangeEvent<HTMLSelectElement>) => setSortBy(event.target.value);
+  const handleFilterBy = (event: ChangeEvent<HTMLSelectElement>) => setSortBy(event.target.value as SortingParams);
 
   const sortedResults = useMemo(() => {
+    /**
+     * This utility mimicks a sort at backend to provide the POC afor functionality
+     */
     let sortedCollection = [...collection];
     switch (sortBy) {
-      case 'birthday':
+      case SortingParams.Birthday:
         sortedCollection = [...collection].sort(
           (a, b) =>
             new Date(a.player.birthday).getTime() -
             new Date(b.player.birthday).getTime()
         );
         break;
-      case 'firstname':
+      case SortingParams.FirstName:
         sortedCollection = [...collection].sort((a, b) =>
           a.player.firstname.localeCompare(b.player.firstname)
         );
         break;
-      case 'lastname':
+      case SortingParams.LastName:
         sortedCollection = [...collection].sort((a, b) =>
           a.player.lastname.localeCompare(b.player.lastname)
         );
@@ -64,9 +68,9 @@ export const useCollectionController = () => {
   return {
     loading,
     error,
-    handleCreateCard,
+    sortedResults,
     sortBy,
     handleFilterBy,
-    sortedResults,
+    handleCreateCard
   };
 };

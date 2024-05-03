@@ -20,7 +20,7 @@ const CreateCard = () => {
   });
   const history = useHistory();
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setCard((prevState) => ({
       ...prevState,
@@ -28,7 +28,7 @@ const CreateCard = () => {
     }));
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
@@ -60,7 +60,7 @@ const CreateCard = () => {
 
   return (
     <CreateCardFormContainer>
-      <CreateCardForm onSubmit={handleSubmit}>
+      <CreateCardForm onSubmit={submitHandler}>
         <CardHeading>Create a Card</CardHeading>
         <FieldGroup>
           <Label>First Name:</Label>
@@ -68,7 +68,7 @@ const CreateCard = () => {
             type="text"
             name="firstname"
             value={card.firstname}
-            onChange={handleChange}
+            onChange={changeHandler}
           />
         </FieldGroup>
         <FieldGroup>
@@ -77,7 +77,7 @@ const CreateCard = () => {
             type="text"
             name="lastname"
             value={card.lastname}
-            onChange={handleChange}
+            onChange={changeHandler}
           />
         </FieldGroup>
         <FieldGroup>
@@ -86,7 +86,7 @@ const CreateCard = () => {
             type="date"
             name="birthday"
             value={card.birthday}
-            onChange={handleChange}
+            onChange={changeHandler}
           />
         </FieldGroup>
         <Button type="submit">Create Card</Button>

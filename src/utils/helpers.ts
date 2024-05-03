@@ -7,3 +7,10 @@ export enum NavigationTabs {
   CREATECARD,
   COLLECTION
 };
+
+export enum SortingParams {
+  FirstName = "firstname",
+  LastName = "lastname",
+  Birthday = "birthday",
+  Empty = "",
+}
